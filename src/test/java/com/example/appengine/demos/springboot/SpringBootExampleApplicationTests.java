@@ -16,17 +16,31 @@
 
 package com.example.appengine.demos.springboot;
 
+import static org.junit.Assert.assertEquals;
+
+import java.io.IOException;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import com.example.appengine.demos.springboot.service.WikipediaService;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class SpringBootExampleApplicationTests {
 
+	 WikipediaService wiki = new WikipediaService();
   @Test
   public void contextLoads() {
+  }
+  
+  @Test
+  public void testGetTitle() throws IOException {
+	  String test = wiki.getTitle("Test");
+	  assertEquals( "Test", test);
   }
 
 }
