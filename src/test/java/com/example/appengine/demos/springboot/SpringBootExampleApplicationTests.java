@@ -43,4 +43,9 @@ public class SpringBootExampleApplicationTests {
 	  assertEquals( "Test", test);
   }
 
+  @Test
+  public void testGetContent() throws IOException {
+	  String test = wiki.getContent("Test");
+	  assertEquals(true, test.startsWith("{{"));
+  }
 }

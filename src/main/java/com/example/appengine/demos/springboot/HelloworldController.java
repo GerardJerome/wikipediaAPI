@@ -54,11 +54,12 @@ public class HelloworldController {
 	private WikipediaService wikipediaService = new WikipediaService();
 	@Autowired MainTableService mainRepo;
 	@CrossOrigin(origins = "*")	
-  @RequestMapping("/find/{name}")
+	
+  @RequestMapping(value = "/find/{name}", produces = "text/plain;charset=UTF-8")
   public String hello(@PathVariable String name) {
 	  
     try {
-    	mainRepo.save(new MainTable( name));
+    	//mainRepo.save(new MainTable( name));
 		return wikipediaService.getInfoBox(name);
 	} catch (IOException e) {
 		e.printStackTrace();
